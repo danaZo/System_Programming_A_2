@@ -25,7 +25,6 @@ int main ()
             break;
         
         case 'B':
-            printf("choose 2 nodes: ");
             scanf("%d%d",&first, &second);
             if(path_exists(mat,first,second))
             {
@@ -39,7 +38,6 @@ int main ()
 
 
         case 'C':
-            printf("choose 2 nodes: ");
             scanf("%d%d",&first, &second);
             printf("%d\n", shortest_path(mat,first,second));
             break;
