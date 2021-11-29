@@ -1,43 +1,58 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "my_mat.h"
-#define SIZE 10
 
 int main ()
 {
-    int choice = 0;
+    char choice = 'A';
     int mat[SIZE][SIZE];
     int first,second;
-    while(choice != -1)
+    while(choice != 'D')
     {
         printf("welcome to my_mat menu!\n");
-        printf("to input data into matrix press 1\n");
-        printf("to check if there is a path between two nodes press 2\n");
-        printf("to search for the shortest path press 3\n");
+        printf("to input data into matrix press A\n");
+        printf("to check if there is a path between two nodes press B\n");
+        printf("to search for the shortest path press C\n");
+        printf("to exit the program press D\n");
         printf("your choice: ");
-        scanf("%d",&choice);
+        scanf("%c",&choice);
 
         switch (choice)
         {
-        case 1:
+        case 'A':
             set_values(mat);
+            floyd_warshell(mat);
             break;
         
-        case 2:
+        case 'B':
             printf("choose first node: ");
             scanf("%d",&first);
             printf("choose second node: ");
             scanf("%d",&second);
             if(path_exists(mat,first,second))
             {
-                printf("there is a path!\n");
+                printf("True\n");
             }
             else
             {
-                printf("there is no path\n");
+                printf("False\n");
             }
             break;
 
+
+        case 'C':
+            printf("choose first node: ");
+            scanf("%d",&first);
+            printf("choose second node: ");
+            scanf("%d",&second);
+            printf("%d\n", shortest_path(mat,first,second));
+            break;
+
+        case 'D':
+            return 0;
+
         default:
+
             break;
         }
     }
