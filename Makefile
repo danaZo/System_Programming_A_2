@@ -5,7 +5,7 @@ clean:
 
 all: connections
 
-prog: main.o my_mat.o
+connections: main.o my_mat.o
 	gcc $(CFLAGS) -o connections main.o my_mat.o
 
 main.o: main.c my_mat.h
